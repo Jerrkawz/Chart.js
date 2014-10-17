@@ -104,20 +104,12 @@
 				this.datasets.push(datasetObject);
 
 				helpers.each(dataset.data,function(dataPoint,index){
-					var strokeColor;
-					var fillColor;
+					var strokeColor, fillColor, highlightFill, highlightStroke;
 					
-					if (Array.isArray(dataset.strokeColor)) {
-						strokeColor = dataset.strokeColor[index];
-					} else {
-						strokeColor = dataset.strokeColor;
-					}
-
-					if (Array.isArray(dataset.fillColor)) {
-						fillColor = dataset.fillColor[index];
-					} else {
-						fillColor = dataset.fillColor;
-					}
+					strokeColor = Array.isArray(dataset.strokeColor) ? dataset.strokeColor[index] : dataset.strokeColor;
+					fillColor = Array.isArray(dataset.fillColor) ? dataset.fillColor[index] : dataset.fillColor;
+					highlightFill = Array.isArray(dataset.highlightFill) ? dataset.highlightFill[index] : dataset.highlightFill;
+					highlightStroke = Array.isArray(dataset.highlightStroke) ? dataset.highlightStroke[index] : dataset.highlightStroke;
 					//Add a new point for each piece of data, passing any required data to draw.
 					datasetObject.bars.push(new this.BarClass({
 						value : dataPoint,
@@ -125,8 +117,8 @@
 						datasetLabel: dataset.label,
 						strokeColor : strokeColor,
 						fillColor : fillColor,
-						highlightFill : dataset.highlightFill || dataset.fillColor,
-						highlightStroke : dataset.highlightStroke || dataset.strokeColor
+						highlightFill : highlightFill || fillColor,
+						highlightStroke : highlightStroke || strokeColor
 					}));
 				},this);
 
