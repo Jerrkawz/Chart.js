@@ -13,3 +13,8 @@ Chart.js is available under the [MIT license](http://opensource.org/licenses/MIT
 ## Bugs & issues
 
 When reporting bugs or issues, if you could include a link to a simple [jsbin](http://jsbin.com) or similar demonstrating the issue, that'd be really helpful.
+
+## NOTE
+
+The only change between this and the original chartjs repo is that I added an array of colors for barchart. StrokeColor and fillColor will both accept arrays of colors or a single color.
+This is only for barchart.
