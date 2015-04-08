@@ -33,7 +33,7 @@
 			}
 			else
 			{
-				return document.defaultView.getComputedStyle(element).getPropertyValue(dimension);
+				return null;
 			}
 		};
 
@@ -1079,7 +1079,7 @@
 						labels: tooltipLabels,
 						legendColors: tooltipColors,
 						legendColorBackground : this.options.multiTooltipKeyBackground,
-						title: ChartElements[0].label,
+						title: this.options.tooltipTitles ? this.options.tooltipTitles[dataIndex] : ChartElements[0].label,
 						chart: this.chart,
 						ctx: this.chart.ctx,
 						custom: this.options.customTooltips
